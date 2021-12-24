@@ -210,3 +210,15 @@
     width: 100%;
   }
 }
+
+
+url = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.thinglink.me%2Fapi%2Fimage%2F909261382485016578%2F1024%2F10%2Fscaletowidth%2F0%2F0%2F1%2F1%2Ffalse%2Ftrue%3Fwait%3Dtrue&f=1&nofb=1';
+  safeUrl = this._sanitizer.bypassSecurityTrustResourceUrl(this.url);
+  sanitizedUrl = this._sanitizerImpl.sanitize(SecurityContext.RESOURCE_URL, this.safeUrl);
+
+private _sanitizer:DomSanitizer, private _sanitizerImpl: ɵDomSanitizerImpl
+
+<h2>USING SANITIZED URL</h2>
+<div class="example" [ngStyle]="{ backgroundImage: 'url(' + sanitizedUrl + ')' }"></div>
+<h2>USING SANITIZED URL2</h2>
+<div class="example" [ngStyle]="{ backgroundImage: 'url(' + url + ')' }"></div>
